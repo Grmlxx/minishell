@@ -6,7 +6,7 @@
 /*   By: alamaoui <alamaoui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/26 23:55:29 by alamaoui          #+#    #+#             */
-/*   Updated: 2024/07/25 06:19:11 by alamaoui         ###   ########.fr       */
+/*   Updated: 2024/07/28 13:17:05 by alamaoui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,13 +74,10 @@ void	lkmala(t_tree *tree, t_env *env, t_data data)
 void	tree_execution(t_tree *tree, t_env *env, t_data data)
 {
 	signal_l7ma9();
-	if (tree->value == NULL)
-	{
-		bye_bye1("Command '' not found\n");
-		tree = tree->next;
-	}
 	if (!tree)
 		return ;
+	if (tree->value == NULL)
+		return (bye_bye1("Command '' not found\n"));
 	save_stdin_stdout(&data.std_in, &data.std_out);
 	if (tree->type == TOKEN_WORD)
 	{

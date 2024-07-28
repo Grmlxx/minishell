@@ -6,7 +6,7 @@
 /*   By: alamaoui <alamaoui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 14:13:50 by alamaoui          #+#    #+#             */
-/*   Updated: 2024/07/26 02:11:50 by alamaoui         ###   ########.fr       */
+/*   Updated: 2024/07/28 13:12:00 by alamaoui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ t_token	*lexer_collect_word(t_lexer *lexer, t_env *env)
 			if (lexer->c == '$' && ft_printable(lexer->content[lexer->i + 1]))
 				value = if_dollar(lexer, env, value);
 		}
+		if (lexer->c == ' ' || lexer->c == '\t')
+			break ;
 		if (ft_printable(lexer->c))
 			value = ft_strjoin(value, lexer_get_current_char_as_string(lexer));
 		if (lexer->c == '"')
